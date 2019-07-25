@@ -18,6 +18,14 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url()."assets/"?>css/sb-admin-2.min.css" rel="stylesheet">
 
+  <style type="text/css">
+    #mbtn{
+      padding: 10px;
+    border-radius: 50px;
+}
+
+  </style>
+
 </head>
 
 <body id="page-top">

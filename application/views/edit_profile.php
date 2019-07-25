@@ -16,41 +16,30 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Edit Profile</h1>
               </div>
-              <form class="user" method="post" action="<?php echo base_url('HomeController/edit_profile_data');?>" >
+              <div style="margin-top: -54px; float: right;">
+              <a href="<?php echo base_url('HomeController/view_profile/'.$data['id']);?>" class="btn btn-primary pull-right">Back</a>
+              </div>
+              <form class="user" method="post" action="<?php echo base_url('HomeController/update_profile/'.$data['id']);?>" >
                 <div class="form-group ">
                 
-                    <input type="text" name="f_name" class="form-control form-control-user" required placeholder="First Name">
+                    <input type="text" name="f_name" value="<?php echo $data['f_name'];?>" class="form-control form-control-user"  placeholder="First Name">
                     <?php echo form_error('f_name'); ?>
                 
                 </div>
                 <div class="form-group ">
                 
-                    <input type="text" name="l_name" class="form-control form-control-user" required placeholder="Last Name">
+                    <input type="text" name="l_name" value="<?php echo $data['l_name'];?>" class="form-control form-control-user"  placeholder="Last Name">
                      <?php echo form_error('l_name'); ?>
 
                 
                 </div>
                <div class="form-group ">
                 
-                    <input type="number" name="mobile" class="form-control form-control-user" required placeholder="Mobile ">
+                    <input type="number" name="mobile" value="<?php echo $data['mobile'];?>" class="form-control form-control-user" placeholder="Mobile ">
                      <?php echo form_error('mobile'); ?>
                 
                 </div>
 
-                <!-- <div class="form-group">
-                  <input type="email" name="email" class="form-control form-control-user"  required placeholder="Email Address">
-                   <?php echo form_error('email'); ?>
-                </div>
-                <div class="form-group">
-              
-                    <input type="password" name="password" class="form-control form-control-user"  required placeholder="Password">
-                     <?php echo form_error('password'); ?>
-                  </div>
-                  <div class="form-group">
-                    <input type="password"  name="re_password" class="form-control form-control-user" required placeholder="Repeat Password">
-                     <?php echo form_error('re_password'); ?>
-                  </div> -->
-          
                 <input type="submit" name="submit" value="Save Changes" class="btn btn-primary btn-user btn-block">
       
               

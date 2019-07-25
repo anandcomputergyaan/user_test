@@ -18,7 +18,6 @@ class LoginController extends CI_Controller
 
 	public function index(){
 		$this->load->view('user_login');
-
 	}
 
 
@@ -39,12 +38,18 @@ class LoginController extends CI_Controller
 		
 		if($this->form_validation->run()==true) 
 		{
+
+			date_default_timezone_set('Asia/kolkata');
+            $date=date('y-m-d H:i:s');
+
           $data = array(
+
 				'f_name' =>$this->input->post('f_name') , 
 				'l_name' =>$this->input->post('l_name') , 
 				'mobile' =>$this->input->post('mobile') , 
 				'email' =>$this->input->post('email') , 
-				'password' =>$this->input->post('password') , 
+				'password' =>SHA1($this->input->post('password')), 
+				'created_at'=>$date,
 			   );
           if($this->UserModel->save($data))
           {
@@ -65,31 +70,55 @@ class LoginController extends CI_Controller
 
 
 
-	 public function validation()
+	 public function login()
 	 {
 	  
 	   $this->form_validation->set_rules('email', 'Email Address', 'required|trim|valid_email');
 	   $this->form_validation->set_rules('password', 'Password', 'required');
 	 
-		  if($this->form_validation->run())
+		  if($this->form_validation->run()==true)
 		  {
-            $this->load->model('LoginModel');
-		   $result = $this->LoginModel->can_login($this->input->post('email'), $this->input->post('password'));
 
-		   if($info = $result)
-		   {
-		   	 $this->session->set_userdata($info);
-		     redirect(base_url('HomeController'));
-		   }
+  $this->load->model('LoginModel');
+		  	 $email=$this->input->post('email');
+		  	$pass=SHA1($this->input->post('password'));
+	          
 
-		   else
-		   {
-		    $this->form_validation->set_error_delimiters('<p style="color:red;">', '</p>');
-		    $this->load->view('user_login');
-		   }
+			   $result = $this->LoginModel->can_login($email,$pass);
+
+			   if($info = $result)
+			   {
+			   	
+			   	 $this->session->set_userdata($info);
+			     redirect(base_url('HomeController'));
+			   }
+
+			   else
+			   {
+                   $error='Oops !! Email and Password are not correct';
+			    $this->load->view('user_login',  array('error' => $error,));
+			   }
 		  }
+		  	 else
+			    {
+			     $this->form_validation->set_error_delimiters('<p style="color:red;">', '</p>');
+			     $this->load->view('user_login');
+			    }
 
 
+	 }
+	   public function logout(){
+
+	   	$this->session->sess_destroy();
+	   	redirect(base_url('LoginController'));
+
+       }
+  
+
+
+	 public function user_list(){
+	 	$users=$this->UserModel->all_user();
+             print_r($users);
 	 }
 	  
 

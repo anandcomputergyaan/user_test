@@ -3,7 +3,7 @@ class LoginModel extends CI_Model
 {
   public function can_login($email, $password)
   {
-    $query = $this->db->select('f_name,l_name,id')->get_where('user', array('email' => $email, 'password' => $password));
+    $query = $this->db->select('f_name,l_name,id,is_admin')->get_where('user', array('email' => $email, 'password' => $password));
    // print_r($query->result_array()); die;
     if($row = $query->result_array())
     {
@@ -17,6 +17,12 @@ class LoginModel extends CI_Model
     }
    
   }
+  
+
+  
+
+
+
 }
 
 ?>
