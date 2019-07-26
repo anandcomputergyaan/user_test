@@ -29,16 +29,15 @@
                 ?> 
 
                     <div style="margin-top: -54px; float: right;">
-              <a href="<?php echo base_url('HomeController/user_list');?>" class="btn btn-primary pull-right">Back</a>
+              <a href="<?php echo base_url('/users-list');?>" class="btn btn-primary pull-right">Back</a>
               </div>
                   <?php
                    } else{
                   ?>
                                  <div style="margin-top: -54px; float: right;">
-              <a href="<?php echo base_url('HomeController');?>" class="btn btn-primary pull-right">Back</a>
+              <a href="<?php echo base_url('/dashboard');?>" class="btn btn-primary pull-right">Back</a>
               </div>
-                 <?php
-                   }                  ?>
+                 <?php } ?>
                <form class="user" >
                 <div class="form-group ">
                 
@@ -59,7 +58,7 @@
 
     
               </form>
-                          <a href="<?php echo base_url('/HomeController/edit_profile/').$data['id'];?>"  > <button class="  btn btn-primary btn-user btn-block" id='mbtn' > Edit </button></a>
+                          <a href="<?php echo base_url('/edit/').$data['id'];?>"  > <button class="  btn btn-primary btn-user btn-block" id='mbtn' > Edit </button></a>
       
             
         <!-- /.container-fluid -->

@@ -53,7 +53,8 @@ class LoginController extends CI_Controller
 			   );
           if($this->UserModel->save($data))
           {
-          	 $this->load->view('user_login');
+          	 redirect(base_url('login'));
+
           }
 
 
@@ -61,12 +62,11 @@ class LoginController extends CI_Controller
 		 else {
 			$this->form_validation->set_error_delimiters('<p style="color:red;">', '</p>');
 				$this->load->view('user_reg');
-		}
 
 
 
 
-	}
+	}}
 
 
 
@@ -79,7 +79,7 @@ class LoginController extends CI_Controller
 		  if($this->form_validation->run()==true)
 		  {
 
-  $this->load->model('LoginModel');
+             $this->load->model('LoginModel');
 		  	 $email=$this->input->post('email');
 		  	$pass=SHA1($this->input->post('password'));
 	          
@@ -90,36 +90,32 @@ class LoginController extends CI_Controller
 			   {
 			   	
 			   	 $this->session->set_userdata($info);
-			     redirect(base_url('HomeController'));
+			     redirect(base_url('dashboard'));
 			   }
 
 			   else
 			   {
                    $error='Oops !! Email and Password are not correct';
-			    $this->load->view('user_login',  array('error' => $error,));
+			     $this->load->view('user_login',  array('error' => $error,));
 			   }
 		  }
-		  	 else
-			    {
-			     $this->form_validation->set_error_delimiters('<p style="color:red;">', '</p>');
-			     $this->load->view('user_login');
-			    }
+	  	 else
+		    {
+		     $this->form_validation->set_error_delimiters('<p style="color:red;">', '</p>');
+		     $this->load->view('user_login');
+		    }
 
 
 	 }
 	   public function logout(){
 
 	   	$this->session->sess_destroy();
-	   	redirect(base_url('LoginController'));
+	   	redirect(base_url('login'));
 
        }
   
 
 
-	 public function user_list(){
-	 	$users=$this->UserModel->all_user();
-             print_r($users);
-	 }
 	  
 
 

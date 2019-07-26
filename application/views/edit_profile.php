@@ -17,7 +17,7 @@
                 <h1 class="h4 text-gray-900 mb-4">Edit Profile</h1>
               </div>
               <div style="margin-top: -54px; float: right;">
-              <a href="<?php echo base_url('HomeController/view_profile/'.$data['id']);?>" class="btn btn-primary pull-right">Back</a>
+              <a href="<?php echo base_url('profile/'.$data['id']);?>" class="btn btn-primary pull-right">Back</a>
               </div>
               <form class="user" method="post" action="<?php echo base_url('HomeController/update_profile/'.$data['id']);?>" >
                 <div class="form-group ">

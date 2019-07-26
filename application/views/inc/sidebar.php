@@ -14,7 +14,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('/HomeController'); ?>">
+        <a class="nav-link" href="<?php echo base_url('/dashboard'); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -31,7 +31,7 @@
       <!-- Nav Item - Tables -->
 <?php if($this->session->userdata['is_admin']==1){ ?>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('HomeController/user_list') ?>">
+        <a class="nav-link" href="<?php echo base_url('/users-list') ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>User</span></a>
       </li>

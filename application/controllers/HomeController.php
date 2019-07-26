@@ -32,6 +32,7 @@ class HomeController extends CI_Controller
 	public function view_profile($id)
 	{   
 		$data = $this->UserModel->get_data_by_id($id);
+        var_dump($data);
 		$this->load->view('view_profile',  array('data'=>$data,));
 	}
 
@@ -88,7 +89,7 @@ class HomeController extends CI_Controller
 
         $result= $this->UserModel->delete_user_info($id);                       
 		if ($result){
-			$this->user_list();
+			redirect(base_url('users-list'));
 			
 		}
 

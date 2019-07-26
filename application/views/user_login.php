@@ -45,7 +45,7 @@
 
 
 									</div>
-									<form action = "<?php echo base_url('LoginController/login') ?>" method="post" class="user">
+									<form action = "<?php echo base_url('/login-validation') ?>" method="post" class="user">
 										<div class="form-group">
 											<input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="Enter Email ">
 											<?php echo form_error('email'); ?>
@@ -66,7 +66,7 @@
 									<hr>
 
 									<div class="text-center">
-										<a class="small" href="<?php echo base_url('LoginController/registration')?>">Create an Account!</a>
+										<a class="small" href="<?php echo base_url('registration')?>">Create an Account!</a>
 									</div>
 								</div>
 							</div>

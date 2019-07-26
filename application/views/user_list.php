@@ -46,7 +46,7 @@
                       <td><?php echo $value['email'];?></td>
                       <td><?php echo $value['created_at'];?></td>
                       <td> 
-                        <a href="<?php echo base_url('HomeController/view_profile/'.$value['id']); ?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                        <a href="<?php echo base_url('/profile/'.$value['id']); ?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
                         <!-- <button class="btn btn-info" > View</button> -->
                              <a href="<?php echo base_url('HomeController/delete_user/'.$value['id']); ?>" class="btn btn-danger"> <i class="far fa-trash-alt"></i></a>
                             

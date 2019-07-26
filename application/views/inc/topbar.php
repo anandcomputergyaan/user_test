@@ -36,11 +36,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('HomeController/view_profile/'.$this->session->userdata('id')); ?>">
+                <a class="dropdown-item" href="<?php echo base_url('/profile/'.$this->session->userdata('id')); ?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="<?php echo base_url('/HomeController/edit_profile/').$this->session->userdata('id');?>">
+                <a class="dropdown-item" href="<?php echo base_url('/edit/').$this->session->userdata('id');?>">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Profile
                 </a>
